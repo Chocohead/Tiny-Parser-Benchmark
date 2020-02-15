@@ -16,6 +16,7 @@ import org.openjdk.jmh.infra.Blackhole;
 import net.fabricmc.mappings.model.V2MappingsProvider;
 
 import com.chocohead.mappings.MappingsProvider;
+import com.chocohead.mappings.TinyV2VisitorBetterBridge;
 import com.chocohead.mappings.TinyV2VisitorFabricBridge;
 
 @Fork(25)
@@ -50,5 +51,10 @@ public class V2Full extends V2MappingBenchmark {
 	@Benchmark
 	public void measureChocoShortSmall(Blackhole hole) throws IOException {
 		hole.consume(MappingsProvider.readTinyMappings(new ByteArrayInputStream(RAW_MAPPINGS), true));
+	}
+
+	@Benchmark
+	public void measureChocoBetter(Blackhole hole) throws IOException {
+		hole.consume(TinyV2VisitorBetterBridge.fullyRead(new ByteArrayInputStream(RAW_MAPPINGS), false));
 	}
 }
