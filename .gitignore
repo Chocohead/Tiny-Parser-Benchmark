@@ -1,0 +1,18 @@
+#Base project things
+/**
+!.gitignore
+!README.md
+!LICENSE.md
+!jitpack.yml
+
+#Code
+!src/
+!src/**
+
+#Jeka and friends
+!jekaw*
+!jeka/
+!jeka/def/
+!jeka/def/**
+!jeka/wrapper/
+!jeka/wrapper/**
